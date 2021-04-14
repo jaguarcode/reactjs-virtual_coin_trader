@@ -8,10 +8,10 @@ class App extends Component {
       <div>
         <nav>
           <div className="nav-wrapper">
-            <div>Hello, Material Design!</div>
+            <div>안녕!</div>
           </div>
         </nav>
-        <h1>Material</h1>
+        <h1>가상 코인 거래소</h1>
       </div>
     );
   }
