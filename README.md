@@ -15,3 +15,5 @@
 ### 만든 방식
 
 - 에어비엔비 실무 방식 그대로
+
+![Alt text](/public/img/demo.png)
