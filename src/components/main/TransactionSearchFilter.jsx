@@ -8,7 +8,6 @@ import Input from '../../ui/Input';
 import Form from '../../ui/Form';
 
 import Select, { Option } from '../../ui/Select';
-import Api from '../../Api';
 
 class TransactionSearchFilter extends PureComponent {
   constructor(props) {
@@ -17,8 +16,11 @@ class TransactionSearchFilter extends PureComponent {
   }
 
   handleSubmit(params) {
-    const { setTransactionList } = this.props;
-    Api.get('/transactions', { params }).then(({ data }) => setTransactionList(data));
+    const { requestTransactionList } = this.props;
+    const cleanedParams = Object.entries(params)
+      .filter(([key, value]) => value !== '')
+      .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+    requestTransactionList(cleanedParams);
   }
 
   render() {
@@ -60,7 +62,7 @@ class TransactionSearchFilter extends PureComponent {
 }
 
 TransactionSearchFilter.propTypes = {
-  setTransactionList: PropTypes.func,
+  requestTransactionList: PropTypes.func,
 };
 
 export default TransactionSearchFilter;
