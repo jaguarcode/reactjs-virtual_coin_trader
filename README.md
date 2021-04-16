@@ -6,6 +6,11 @@
 - json-server
   - script: yarn mockserver
   - http://localhost:4000/transactions
+- axios
+  - axios.get(url[, config])
+  - axios.post(utl[, data[, config]])
+  - axios.put(url[, data[, config]])
+  - axios.delete(url[, config])
 
 ### 만든 방식
 
