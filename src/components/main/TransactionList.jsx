@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-// import axios from 'axios';
 import Api from '../../Api';
 
 import Heading from '../../ui/Heading';
@@ -9,20 +8,12 @@ import TransactionSearchFilter from './TransactionSearchFilter';
 import TransactionTable from './TransactionTable';
 
 class TransactionList extends PureComponent {
-  state = {
-    transactions: [],
-  };
-
   componentDidMount() {
-    Api.get('transactions/').then((response) =>
-      this.setState({
-        transactions: response.data,
-      }),
-    );
+    Api.get('transactions/').then(({ data }) => this.props.setTransactionList(data));
   }
 
   render() {
-    const { transactions } = this.state;
+    const { transactions } = this.props;
     return (
       <div>
         <Heading level={3}>Trading Status</Heading>
@@ -36,5 +27,10 @@ class TransactionList extends PureComponent {
     );
   }
 }
+
+TransactionList.defaultProps = {
+  transactions: [],
+  setTransactionList: () => {},
+};
 
 export default TransactionList;
