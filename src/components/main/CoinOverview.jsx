@@ -8,7 +8,7 @@ class CoinOverview extends PureComponent {
     return (
       <React.Fragment>
         <Heading level={3}>Coin Trends</Heading>
-        <InlineList>
+        <InlineList spacingBetween={1}>
           <CoinDashlet name="Virtual Coin #1" priceLabel="$1,000" />
           <CoinDashlet name="Virtual Coin #2" priceLabel="$100" />
           <CoinDashlet name="Virtual Coin #3" priceLabel="$10" />

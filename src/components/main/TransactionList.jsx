@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+// import axios from 'axios';
+import Api from '../../Api';
 
 import Heading from '../../ui/Heading';
 import Card from '../../ui/Card';
@@ -8,16 +10,16 @@ import TransactionTable from './TransactionTable';
 
 class TransactionList extends PureComponent {
   state = {
-    transactions: [
-      {
-        id: 'vc1',
-        name: 'Virtual Coin #1 (VC1)',
-        totalPrice: '$1,000',
-        currentPrice: '$100',
-        datetime: '2021/04/16 17:00:00',
-      },
-    ],
+    transactions: [],
   };
+
+  componentDidMount() {
+    Api.get('transactions/').then((response) =>
+      this.setState({
+        transactions: response.data,
+      }),
+    );
+  }
 
   render() {
     const { transactions } = this.state;

@@ -14,12 +14,12 @@ class TransactionSearchFilter extends PureComponent {
       <Form onSubmit={(values) => console.log(values)}>
         <Form.Consumer>
           {({ onChange, values }) => (
-            <InlineList spacingBetween={2} verticalAlign="bottom">
+            <InlineList spacingBetween={1} verticalAlign="bottom">
               <Text large bold>
                 Search
               </Text>
               <Select name="code" label="Coin Code" onChange={onChange} value={values['code']}>
-                <Option label="select one..." />
+                <Option label="select one..." value="" />
                 <Option label="Virtual Coin #1" value="VC1" />
                 <Option label="Virtual Coin #2" value="VC2" />
                 <Option label="Virtual Coin #3" value="VC3" />
