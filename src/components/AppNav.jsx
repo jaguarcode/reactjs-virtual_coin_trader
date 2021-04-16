@@ -12,7 +12,7 @@ class AppNav extends PureComponent {
       <div {...css(styles.wrapper)}>
         <div {...css(styles.container)}>
           <Heading level={3} inverse>
-            Virtual Coin Traders
+            # Virtual Coin Traders
           </Heading>
           <Text inverse bold large>
             Sign up
