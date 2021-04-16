@@ -3,6 +3,9 @@
 ### 환경
 
 - Node version 10.12.0
+- json-server
+  - script: yarn mockserver
+  - http://localhost:4000/transactions
 
 ### 만든 방식
 
