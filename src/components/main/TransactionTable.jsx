@@ -5,6 +5,15 @@ import TableRow from '../../ui/TableRow';
 import TableCell from '../../ui/TableCell';
 import TableHead from '../../ui/TableHead';
 import TableBody from '../../ui/TableBody';
+import Text from '../../ui/Text';
+import Spacing from '../../ui/Spacing';
+import withLoading from '../../ui/withLoading';
+
+const LoadingMessage = (
+  <Spacing vertical={4} horizontal={2}>
+    <Text large>loading data...</Text>
+  </Spacing>
+);
 
 class TransactionTable extends PureComponent {
   render() {
@@ -46,4 +55,4 @@ TransactionTable.propTypes = {
   ),
 };
 
-export default TransactionTable;
+export default withLoading(LoadingMessage)(TransactionTable);
