@@ -54,7 +54,7 @@ class Input extends PureComponent {
           ref={this.setRef}
           type={type}
           onChange={this.handleChange}
-          value={value}
+          value={value ? value : 0}
         />
       </fieldset>
     );

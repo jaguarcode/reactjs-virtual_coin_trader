@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import InlineList from '../../ui/InlineList';
 import Button from '../../ui/Button';
@@ -7,11 +8,22 @@ import Input from '../../ui/Input';
 import Form from '../../ui/Form';
 
 import Select, { Option } from '../../ui/Select';
+import Api from '../../Api';
 
 class TransactionSearchFilter extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(params) {
+    const { setTransactionList } = this.props;
+    Api.get('/transactions', { params }).then(({ data }) => setTransactionList(data));
+  }
+
   render() {
     return (
-      <Form onSubmit={(values) => console.log(values)}>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Consumer>
           {({ onChange, values }) => (
             <InlineList spacingBetween={1} verticalAlign="bottom">
@@ -25,16 +37,16 @@ class TransactionSearchFilter extends PureComponent {
                 <Option label="Virtual Coin #3" value="VC3" />
               </Select>
               <Input
-                name="minAmount"
-                label="minimum amount"
+                name="currentPrice_gte"
+                label="minimum price"
                 onChange={onChange}
-                value={values['minAmount']}
+                value={values['currentPrice_gte']}
               />
               <Input
-                name="maxAmount"
-                label="maximum amount"
+                name="currentPrice_lte"
+                label="maximum price"
                 onChange={onChange}
-                value={values['maxAmount']}
+                value={values['currentPrice_lte']}
               />
               <Button type="submit" primary>
                 Search
@@ -47,6 +59,8 @@ class TransactionSearchFilter extends PureComponent {
   }
 }
 
-TransactionSearchFilter.propTypes = {};
+TransactionSearchFilter.propTypes = {
+  setTransactionList: PropTypes.func,
+};
 
 export default TransactionSearchFilter;

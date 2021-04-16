@@ -4,8 +4,8 @@ import Api from '../../Api';
 import Heading from '../../ui/Heading';
 import Card from '../../ui/Card';
 
-import TransactionSearchFilter from './TransactionSearchFilter';
 import TransactionTable from './TransactionTable';
+import TransactionSearchFilterContainer from '../../containers/main/TransactionSearchFilterContainer';
 
 class TransactionList extends PureComponent {
   componentDidMount() {
@@ -18,7 +18,7 @@ class TransactionList extends PureComponent {
       <div>
         <Heading level={3}>Trading Status</Heading>
         <Card vertical={4} horizontal={4}>
-          <TransactionSearchFilter />
+          <TransactionSearchFilterContainer />
         </Card>
         <Card>
           <TransactionTable transactions={transactions} />
