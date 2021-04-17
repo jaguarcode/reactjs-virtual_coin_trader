@@ -3,13 +3,24 @@ import Api from '../Api';
 export const FETCH_TRANSACTION_LIST = 'transaction/FETCH_TRANSACTION_LIST';
 export const CREATE_TRANSACTION = 'transaction/CREATE_TRANSACTION';
 
-export function requestTransactionList(params) {
+const PAGE_SIZE = 10;
+
+export function requestTransactionList(params, _page = 1) {
   return {
     type: FETCH_TRANSACTION_LIST,
-    promise: Api.get('transactions/', { params }),
+    promise: Api.get('transactions/', {
+      params: {
+        ...params,
+        _page,
+        _limit: PAGE_SIZE,
+      },
+    }),
     meta: {
+      pageNumber: _page,
+      pageSize: PAGE_SIZE,
       notification: {
-        error: 'An error occured while updating trading status.',
+        success: 'Update Trading Status Success.',
+        error: 'An Error Occured While Updating Trading Status.',
       },
     },
   };
