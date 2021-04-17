@@ -7,7 +7,6 @@ import Button from '../../ui/Button';
 import InlineList from '../../ui/InlineList';
 import Form from '../../ui/Form';
 import { Consumer as Modal } from '../../ui/Modal/context';
-import Api from '../../Api';
 
 class TradeCoinPage extends PureComponent {
   constructor(props) {
@@ -16,13 +15,13 @@ class TradeCoinPage extends PureComponent {
   }
 
   handleSubmit(values, closeModal) {
-    const { name, code } = this.props;
+    const { name, code, createTransaction } = this.props;
     const formValues = {
       ...values,
       code,
       name,
     };
-    Api.post('transactions/', formValues).then(() => closeModal());
+    createTransaction(formValues, closeModal);
   }
 
   render() {
