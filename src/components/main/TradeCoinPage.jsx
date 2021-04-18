@@ -25,7 +25,7 @@ class TradeCoinPage extends PureComponent {
   }
 
   render() {
-    const { name, price, type } = this.props;
+    const { name, price, type, loading } = this.props;
     const typeName = type === 'sell' ? 'Sell' : 'Buy';
     return (
       <Modal>
@@ -57,8 +57,12 @@ class TradeCoinPage extends PureComponent {
                     />
                   </Spacing>
                   <InlineList spacingBetween={1}>
-                    <Button primary>{typeName}</Button>
-                    <Button onPress={closeModal}>Cancel</Button>
+                    <Button primary disable={loading}>
+                      {typeName}
+                    </Button>
+                    <Button onPress={closeModal} disable={loading}>
+                      Cancel
+                    </Button>
                   </InlineList>
                 </Spacing>
               )}

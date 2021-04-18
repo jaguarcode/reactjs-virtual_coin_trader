@@ -25,7 +25,7 @@ class TransactionPagination extends PureComponent {
     const prevDisabled = loading || pageNumber <= 1;
     const nextDisabled = loading || !hasNext;
     return (
-      <InlineList align="right">
+      <InlineList spacingBetween={1} align="right">
         <Button secondary disabled={prevDisabled} onPress={this.handlePrevPress}>
           Prev
         </Button>
