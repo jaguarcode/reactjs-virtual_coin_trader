@@ -5,7 +5,6 @@ import Card from '../../ui/Card';
 
 import TransactionTable from './TransactionTable';
 import TransactionSearchFilterContainer from '../../containers/main/TransactionSearchFilterContainer';
-
 import TransactionPaginationContainer from '../../containers/main/TransactionPaginationContainer';
 
 class TransactionList extends PureComponent {
@@ -14,7 +13,7 @@ class TransactionList extends PureComponent {
   }
 
   render() {
-    const { transactions, loadingState } = this.props;
+    const { transactions, loading } = this.props;
     return (
       <div>
         <Heading level={3}>Trading Status</Heading>
@@ -22,7 +21,7 @@ class TransactionList extends PureComponent {
           <TransactionSearchFilterContainer />
         </Card>
         <Card>
-          <TransactionTable transactions={transactions} isLoading={loadingState} />
+          <TransactionTable transactions={transactions} isLoading={loading} />
         </Card>
         <TransactionPaginationContainer />
       </div>
