@@ -22,6 +22,7 @@ const initState = {
     [FETCH_TRANSACTION_LIST]: false,
   },
   pagination: {},
+  pages: {},
 };
 
 export default (state = initState, action) => {
@@ -75,6 +76,10 @@ export default (state = initState, action) => {
               pagination: {
                 number: pageNumber,
                 size: pageSize,
+              },
+              pages: {
+                ...prevState.pages,
+                [pageNumber]: ids,
               },
             };
           } else {

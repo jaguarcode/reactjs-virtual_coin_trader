@@ -14,7 +14,7 @@ class TransactionList extends PureComponent {
   }
 
   render() {
-    const { transactions, loading } = this.props;
+    const { transactions, loadingState } = this.props;
     return (
       <div>
         <Heading level={3}>Trading Status</Heading>
@@ -22,7 +22,7 @@ class TransactionList extends PureComponent {
           <TransactionSearchFilterContainer />
         </Card>
         <Card>
-          <TransactionTable transactions={transactions} isLoading={loading} />
+          <TransactionTable transactions={transactions} isLoading={loadingState} />
         </Card>
         <TransactionPaginationContainer />
       </div>
