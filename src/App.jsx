@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NotFound from './components/NotFound';
 import AppLayout from './components/AppLayout';
-import MainPage from './components/main/MainPage';
+//import MainPage from './components/main/MainPage';
+import MainPage from './AsyncMainPage';
 import configureStore from './store/configureStore';
 import ModalProvider from './ModalProvider';
 import NotificationContainer from './containers/NotificationContainer';
