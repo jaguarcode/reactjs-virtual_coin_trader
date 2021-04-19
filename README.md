@@ -2,7 +2,7 @@
 
 ### 환경
 
-- Node version 10.12.0
+- Node version 10.13.0 (firebase-tools 때문에 버전 올림 10.12.0 => 10.13.0)
 - json-server
   - script: yarn mockserver
   - http://localhost:4000/transactions
