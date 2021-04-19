@@ -2,7 +2,7 @@ import createReducers from '../api-redux-pack/createReducers';
 import notification from './notificationReducer';
 import searchFilter from './searchFilterReducer';
 
-const apiReducers = createReducers('transactions');
+const apiReducers = createReducers('transactions', 'users');
 export default {
   ...apiReducers,
   notification,

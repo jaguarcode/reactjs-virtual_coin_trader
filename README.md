@@ -12,6 +12,23 @@
   - axios.put(url[, data[, config]])
   - axios.delete(url[, config])
 
+### 테스트 방법
+
+- React.js 서버 시작 (포트: 3000)
+
+  - yarn start
+
+- Test용 MockServer 시작 (포트: 4000)
+
+  - yarn mockserver
+    - 트랜잭션 확인 (http://localhost:4000/transactions)
+    - 사용자 확인 (http://localhost:4000/users)
+
+- 스토리북 서버 시작
+
+  - yarn storybook
+    - 스토리북 확인 (http://localhost:9001)
+
 ### 만든 방식
 
 - 에어비엔비 실무 방식

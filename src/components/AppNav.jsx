@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import { withStyles, css, withStylesPropTypes } from '../../src/ui/withStyles';
-import Heading from '../../src/ui/Heading';
-import Text from '../../src/ui/Text';
+import Heading from '../ui/Heading';
+import Button from '../ui/Button';
+import { Consumer as Modal } from '../ui/Modal/context';
+import { REGISTER_USER_MODAL } from '../constants/modals';
 
 export const HEIGHT = 64;
 
@@ -14,9 +16,13 @@ class AppNav extends PureComponent {
           <Heading level={3} inverse>
             # Virtual Coin Traders
           </Heading>
-          <Text inverse bold large>
-            Sign up
-          </Text>
+          <Modal>
+            {({ openModal }) => (
+              <Button inverse bold large onPress={() => openModal(REGISTER_USER_MODAL)}>
+                Sign up
+              </Button>
+            )}
+          </Modal>
         </div>
       </div>
     );
